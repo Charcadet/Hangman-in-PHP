@@ -48,7 +48,7 @@ session_start();
     }
 
     if (!isset($_SESSION['rightLetters'])) {
-        $_SESSION['rightLetters'] = array();
+        $_SESSION['rightLetters'] = array("-");
     }
     
     if (isset($_POST['playerGuess'])) {
