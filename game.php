@@ -40,7 +40,7 @@ session_start();
             exit();
         }
         $woord = $_POST['chosenWord'];
-        $_SESSION['word'] = strtoupper(trim($woord));
+        $_SESSION['word'] = preg_replace('/[^a-z\- ]/i', '', strtoupper(trim($woord)));      
     }
     
     if (!isset($_SESSION['wrongLetters'])) {
@@ -48,7 +48,7 @@ session_start();
     }
 
     if (!isset($_SESSION['rightLetters'])) {
-        $_SESSION['rightLetters'] = array("-");
+        $_SESSION['rightLetters'] = array("-", " ");
     }
     
     if (isset($_POST['playerGuess'])) {
